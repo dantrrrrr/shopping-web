@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FiSend } from 'react-icons/fi'
+import { mobile } from '../responsive'
 
 const Newsletter = () => {
     return (
@@ -42,6 +43,9 @@ const InputContainer = styled.div`
     display: flex;
     justify-content: space-between;
     border: 1px solid lightgray;
+    ${mobile({
+           width:"80%"
+        })}
 `
 const Input = styled.input`
     padding-left: 20px; 

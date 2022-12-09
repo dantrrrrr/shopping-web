@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import { FaFacebook, FaInstagram, FaTwitter, FaTelegram, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa"
 import { GrMail } from 'react-icons/gr'
+import { mobile } from '../responsive'
 
 
 const Footer = () => {
@@ -59,6 +60,14 @@ const Footer = () => {
 }
 const Container = styled.div`
  display: flex;
+ width: 100vw;
+ overflow:hidden;
+ ${mobile({
+     flexDirection: "column"
+           
+        })}
+
+
 `
 const Left = styled.div`
     flex :1;
@@ -92,6 +101,9 @@ const SocialIcon = styled.div`
 const Center = styled.div`
     flex :1;
     padding: 20px;
+    ${mobile({
+        display:"none"    
+    })}
 `
 const Title = styled.h3`
     margin: 0;
@@ -112,11 +124,16 @@ const ListItem = styled.li`
 const Right = styled.div`
     flex :1;
     padding: 20px;
+    ${mobile({
+        backgroundColor:"#fcf5f5"
+    })}
+
 `
 const ContactItem = styled.div`
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+   
 
 `
 const Payment = styled.img`

@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import Products from '../components/Products'
+import { mobile } from '../responsive'
 
 
 const Container =styled.div`
@@ -22,15 +23,26 @@ const Filter =styled.div`
     margin: 20px;
     display: flex;
     align-items:center;
+    ${mobile({
+        margin:"0px 20px ",
+        flexDirection:"column"
+    })}
 `
 const FilterText =styled.div`
     font-size: 20px;
     font-weight: 600;
     margin-right: 20px;
+    ${mobile({
+        margin:0
+    })}
 `
 const Select =styled.select`
     padding: 10px;
     margin-right: 20px;
+    ${mobile({
+        margin:"10px 0 ",
+        width:"80%"
+    })}
 `
 const Option =styled.option``
 const ProductList = () => {
@@ -40,7 +52,8 @@ const ProductList = () => {
         <Announcement/>
         <Title>PANTIES</Title>
         <FilterContainer>
-            <Filter><FilterText>Filter product :</FilterText>
+            <Filter>
+                <FilterText>Filter product :</FilterText>
                 <Select>
                     <Option disabled selected >Color</Option>
                     <Option>White</Option>

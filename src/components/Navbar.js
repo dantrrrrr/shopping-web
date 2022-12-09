@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import { FaSearch, FaShoppingCart } from 'react-icons/fa'
-
-
+import { mobile } from '../responsive'
 
 const Navbar = () => {
     return (
@@ -11,8 +10,8 @@ const Navbar = () => {
                 <Left>
                     <Language>En</Language>
                     <SearchContainer>
-                        <Input/>
-                        <FaSearch style={{color:"gray",fontSize:"16px"}} />
+                        <Input placeholder="search" />
+                        <FaSearch style={{ color: "gray", fontSize: "16px" }} />
                     </SearchContainer>
                 </Left>
                 <Center><Logo>dantr.</Logo></Center>
@@ -20,8 +19,8 @@ const Navbar = () => {
                     <MenuItem>REGISTER</MenuItem>
                     <MenuItem>SIGN IN</MenuItem>
                     <MenuItem>
-                        <Badge>
-                            <span className="quantity">7</span>
+                        <Badge  >
+                            <span className="quantity" >7</span>
 
                             <FaShoppingCart className='shoppingCart' />
                         </Badge>
@@ -36,7 +35,10 @@ const Navbar = () => {
 
 const Container = styled.div`
     height:auto;
+   
     box-sizing: border-box;
+    ${mobile({ backgroundColor: "none" })}
+    
     
     
 `
@@ -53,6 +55,9 @@ const Left = styled.div`
 const Language = styled.div`
     font-size: 14px;
     cursor: pointer;
+    ${mobile({
+    display: "none"
+})}
 `
 const SearchContainer = styled.div`
     border:1px solid lightgray;
@@ -63,9 +68,14 @@ const SearchContainer = styled.div`
     width: 50%;
     justify-content: flex-end;
     cursor: pointer;
+    color:black;
 `
 const Input = styled.div`
     border:none;
+    ${mobile({
+    width: "50px"
+})}
+    color:black;
     
 
 `
@@ -75,6 +85,9 @@ const Center = styled.div`
 `
 const Logo = styled.h1`
     font-weight: bold;
+    ${mobile({
+    fontSize: "24px"
+})}
     
 `
 const Right = styled.div`
@@ -82,39 +95,58 @@ const Right = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items:center;
-    
+     ${mobile({
+    justifyContent: "center",
+    flex: 2
+})}
 `
 const MenuItem = styled.div`
     font-size: 16px;
     cursor: pointer;
     margin-left: 25px;
+    ${mobile({
+    fontSize: "12px",
+    marginLeft: "10px"
+})}
 `
 const Badge = styled.div`
-   
-   
+    height: 20px;
+    width: 20px;
+    font-size: 16px;
+    position: relative;
     
     span.quantity{
-        height: 20px;
-        width: 20px;
+       
+        height: 80%;
+        width: 80%;
         background: red;
         color: #fff;
         border-radius: 50%;
-        font-size: 14px;
+        font-size: 0.7em;
         font-weight: 800;
         display: flex;
         justify-content:center;
         padding: 2px;
         text-align: center;
-        margin-left: 15px;
-        margin-bottom: -7px;
+       
         z-index: 1;
         box-sizing: border-box;
+        position: absolute;
+       top:-0.7em;
+       right: -0.5em;
+       
 
     }
-    .shoppingCart{
-        font-size: 25px;
+    svg{
+        height: 100%;
+        width: 100%;
+        font-size: 1em;
         z-index: 0;
+        ${mobile({
+        })}
     }
+    
+   
 `
 
 export default Navbar
